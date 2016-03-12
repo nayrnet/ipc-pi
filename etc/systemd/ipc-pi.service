@@ -1,0 +1,20 @@
+[Unit]
+Description=IPC Display
+
+[Service]
+Type=forking
+PIDFile=/home/pi/ipc-pi/ipcpi.pid
+ExecStart=/usr/bin/nodejs daemon.js start
+ExecStop=/usr/bin/nodejs daemon.js stop
+Restart=always
+RestartSec=120
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ipc-pi
+User=pi
+Group=pi
+Environment=NODE_ENV=production
+WorkingDirectory=/home/pi/ipc-pi/
+
+[Install]
+WantedBy=multi-user.target

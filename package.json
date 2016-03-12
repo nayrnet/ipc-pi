@@ -1,0 +1,30 @@
+{
+  "name": "ipc-pi",
+  "version": "0.0.1",
+  "description": "IPC-Pi Display",
+  "main": "server.js",
+  "dependencies": {
+    "daemonize2": "^0.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "exit 0",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayrnet/ipc-pi.git"
+  },
+  "keywords": [
+    "RSTP",
+    "Raspberry Pi",
+    "IP Camera",
+    "omxplayer",
+  ],
+  "author": "Ryan Hunt",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nayrnet/ipc-pi/issues"
+  },
+  "homepage": "https://github.com/nayrnet/ipc-pi#readme"
+}

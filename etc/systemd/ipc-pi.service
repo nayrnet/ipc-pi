@@ -2,10 +2,7 @@
 Description=IPC Display
 
 [Service]
-Type=forking
-PIDFile=/home/pi/ipc-pi/ipcpi.pid
-ExecStart=/usr/bin/nodejs daemon.js start
-ExecStop=/usr/bin/nodejs daemon.js stop
+ExecStart=/usr/bin/nodejs server.js
 Restart=always
 RestartSec=120
 StandardOutput=syslog

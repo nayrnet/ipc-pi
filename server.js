@@ -18,7 +18,7 @@ if (options.syslog) {
 
 // Globals
 var	getRes	= 'lib/getRes.sh';
-var	defOpts = '--lavfdopts probesize:25000 --no-keys -p --live --timeout 30 --aspect-mode fill';
+var	defOpts = '--lavfdopts probesize:25000 --no-keys -p --live --timeout 30 --aspect-mode fill --layer 2';
 
 // First: Get Display Resilution
 res = exec(getRes, function (error, stdout, stderr) {

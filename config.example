@@ -1,0 +1,21 @@
+// IPC-PI Example Configuration
+// rename to config.js after making your changes.
+// All Configuration options are made here, wont be overwritten on update.
+
+// BEGIN CONFIG
+var options = {
+	ribbon		: true,			// Ribbon/Grid Display
+	syslog		: false,		// Log to Syslog
+	log		: false,		// Extra Debug Logging
+};
+
+var feeds = [
+	'rtsp://user:pass@192.168.1.20:554/cam/realmonitor?channel=1&subtype=0',	// Primary Display
+	'rtsp://user:pass@192.168.1.21:554/cam/realmonitor?channel=1&subtype=1',
+	'rtsp://user:pass@192.168.1.22:554/cam/realmonitor?channel=1&subtype=1',
+	'rtsp://user:pass@192.168.1.23:554/cam/realmonitor?channel=1&subtype=1',
+];
+// END CONFIG
+
+exports.options = options
+exports.feeds = feeds

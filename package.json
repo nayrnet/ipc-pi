@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "IPC-Pi Display",
   "main": "server.js",
-  "dependencies": {
-    "daemonize2": "^0.4.2"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "exit 0",

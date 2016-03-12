@@ -8,17 +8,11 @@ var	feeds		= require('./config').feeds;
 // Load Modules
 var	exec  	= require('child_process').exec;
 var	util	= require('util');
-if (options.syslog) {
-	var 	SysLogger 	= require('ain2');
-	var	console		= new SysLogger({tag: 'htc', facility: 'daemon'});
-} else {
-	var	Console		= require('console').Console;
-	var	console		= new Console(process.stdout, process.stderr);
-}
 
 // Globals
 var	getRes	= 'lib/getRes.sh';
 var	defOpts = '--lavfdopts probesize:25000 --no-keys -p --live --timeout 30 --aspect-mode fill --layer 2';
+var	timer;
 
 // First: Get Display Resilution
 res = exec(getRes, function (error, stdout, stderr) {
@@ -47,8 +41,10 @@ function runCam(a,b,y,z,uri) {
 	console.log(cmd)
 	cam = exec(cmd, function (error, stdout, stderr) {
 		console.log('resolution: ' + stdout);
-		if (error) {	// Try again after 5s
-			setTimeout(runCam(a,b,y,z,uri), 5000)
-		}
+	});
+	cam.on('close', (code, signal) => {
+		console.log('Closed!')
+		clearTimeout(timer)
+		timer = setTimeout(function () { runCam(a,b,y,z,uri) }, 15000)	// Retry every 15s
 	});
 }
